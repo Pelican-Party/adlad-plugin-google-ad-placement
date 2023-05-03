@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		"checkJs": true
+	},
+	"tasks": {
+		// Updates third party types. Useful if you want type checking in your IDE.
+		"dev": "deno run --unstable -A scripts/dev.js",
+		// performs all tasks that are generally required for ci to pass
+		"check": "deno fmt --check && deno lint",
+		// Bundles AdLad into a single file so that it can be published to package managers.
+		"bundle": "deno run --allow-read --allow-write --allow-env --allow-run scripts/bundle.js"
+	},
+	"fmt": {
+		"files": {
+			"exclude": [
+				".denoTypes",
+				"dist"
+			]
+		},
+		"options": {
+			"indentWidth": 4,
+			"useTabs": true,
+			"lineWidth": 120,
+			"proseWrap": "preserve"
+		}
+	},
+	"lint": {
+		"files": {
+			"exclude": [
+				".denoTypes",
+				"dist"
+			]
+		},
+		"rules": {
+			"exclude": ["require-await"]
+		}
+	},
+	"importMap": "importmap.json"
+}
