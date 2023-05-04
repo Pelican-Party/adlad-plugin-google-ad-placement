@@ -118,7 +118,9 @@ export function googleAdPlacementPlugin({
 			if (adFrequencyHint) {
 				scriptTag.dataset.adFrequencyHint = adFrequencyHint;
 			}
-			// scriptTag.dataset.adbreakTest = "on";
+			if (ctx.useTestAds) {
+				scriptTag.dataset.adbreakTest = "on";
+			}
 			scriptTag.crossOrigin = "anonymous";
 			scriptTag.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + publisherId;
 
