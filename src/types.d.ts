@@ -1,3 +1,3 @@
 interface Window {
-	adsbygoogle: any[];
+	adsbygoogle: unknown[];
 }
