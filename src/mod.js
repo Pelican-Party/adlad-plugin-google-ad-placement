@@ -64,11 +64,13 @@ export function googleAdPlacementPlugin({
 				...options,
 				beforeAd() {
 					if (!initializeContext) throw new Error("Plugin is not initialized");
+					initializeContext.setNeedsPause(true);
 					initializeContext.setNeedsMute(true);
 				},
 				afterAd() {
 					if (!initializeContext) throw new Error("Plugin is not initialized");
 					initializeContext.setNeedsMute(false);
+					initializeContext.setNeedsPause(false);
 				},
 				adBreakDone(placementInfo) {
 					resolve(placementInfo);
@@ -141,6 +143,7 @@ export function googleAdPlacementPlugin({
 			});
 		},
 		manualNeedsMute: true,
+		manualNeedsPause: true,
 		async showFullScreenAd() {
 			return await showAdHelper({
 				type: "pause",
