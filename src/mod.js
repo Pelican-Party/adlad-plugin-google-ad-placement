@@ -171,8 +171,7 @@ export function googleAdPlacementPlugin({
 		}
 	}
 
-	/** @type {import("$adlad").AdLadPlugin} */
-	const plugin = {
+	const plugin = /** @type {const} @satisfies {import("$adlad").AdLadPlugin} */ ({
 		name: "google-ad-placement",
 		async initialize(ctx) {
 			if (initializeCalled) {
@@ -238,7 +237,7 @@ export function googleAdPlacementPlugin({
 			const result = await showRewardedAdFn();
 			return placementInfoToAdLadResult(result);
 		},
-	};
+	});
 
 	return plugin;
 }
