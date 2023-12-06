@@ -1,6 +1,6 @@
 {
 	"name": "@adlad/plugin-google-ad-placement",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "AdLad plugin for AdSense using the Ad Placement API.",
 	"main": "mod.js",
 	"types": "dist/adlad-plugin-google-ad-placement.d.ts",
